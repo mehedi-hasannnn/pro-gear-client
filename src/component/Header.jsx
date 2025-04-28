@@ -58,7 +58,7 @@ const Header = () => {
           )}
         </div>
         <Link to="/" className="font-bold ml-2 text-2xl">
-          SportAxis
+          Pro Gear
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
