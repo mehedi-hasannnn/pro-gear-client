@@ -9,9 +9,9 @@ const Footer = () => {
         
         {/* Brand and Description */}
         <div>
-          <h2 className="text-3xl font-bold mb-2">SportAxis</h2>
+          <h2 className="text-3xl font-bold mb-2">Pro Gear</h2>
           <p className="max-w-md mx-auto text-sm md:text-base">
-            SportAxis is your go-to store for high-quality sports equipment, offering a wide range of products to elevate your game and fuel your passion for sports.
+            Pro Gear is your go-to store for high-quality sports equipment, offering a wide range of products to elevate your game and fuel your passion for sports.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <aside className="text-xs md:text-sm mt-4">
-          <p>© {new Date().getFullYear()} SportAxis - All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Pro Gear - All rights reserved.</p>
         </aside>
 
       </div>
