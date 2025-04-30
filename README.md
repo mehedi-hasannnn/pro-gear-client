@@ -1,12 +1,34 @@
-# React + Vite
+# Pro Gear: A Sports Equipment Store 🏏⚽🏋️‍♀️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pro Gear is a modern, responsive, single-page e-commerce application built for sports enthusiasts to explore, add, and manage various sports equipment. Built with React and Tailwind CSS, it ensures smooth navigation, stunning design, and performance across all devices.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [https://progear-client.netlify.app](https://progear-client.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔐 Firebase Authentication with Google and Email/Password login.
+- 🛒 Add, update, and manage sports equipment (Private Routes).
+- 🎨 Dark/Light Theme Toggle for better user experience.
+- 📱 Fully responsive design for desktop, tablet, and mobile.
+- 🎥 Engaging animations using React Awesome Reveal and Lottie React.
+- 📦 Sorted product listing by price with MongoDB.
+- 🧑‍💻 User-specific equipment management (My Equipment List).
+- 🎯 Toast-based notifications for success & error (no default alerts).
+- 🛡️ Environment variables used to hide Firebase configuration keys.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Packages Used
+
+- React Router DOM
+- Firebase Auth
+- React Hook Form
+- React Toastify
+- React Awesome Reveal
+- Lottie React
+- React Tooltip
+- Axios
+- Tailwind CSS
+
+## 🧑‍💻 Developer
+
+Developed by [Mehedi Hasan]  
+📫 Contact: mhasan2999@gmail.com  
