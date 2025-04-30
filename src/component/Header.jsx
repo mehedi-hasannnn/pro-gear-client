@@ -13,17 +13,17 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const links = (
     <div className="flex flex-col md:flex-row gap-2 md:gap-5">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/allSports">All Sports Equipment</NavLink>
-      <NavLink to="/addEquipment">Add Equipment</NavLink>
-      <NavLink to="/allList">My Equipment List</NavLink>
+      <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/">Home</NavLink>
+      <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/allSports">All Sports Equipment</NavLink>
+      <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/addEquipment">Add Equipment</NavLink>
+      <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/allList">My Equipment List</NavLink>
     </div>
   );
 
   const links1 =(
     <div className="flex flex-col md:flex-row gap-2 md:gap-5 font-semibold">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/allSports">All Sports Equipment</NavLink>
+        <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/">Home</NavLink>
+        <NavLink className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300" to="/allSports">All Sports Equipment</NavLink>
     </div>
   )
 
@@ -38,72 +38,68 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <div className="navbar fixed z-50 top-0 bg-opacity-60 dark:text-[#273248] dark:bg-slate-300 bg-[#273248] text-white w-full mx-auto md:px-10 py-2">
+    <div className="navbar fixed z-50 top-0 w-full mx-auto py-3 px-4 bg-black backdrop-blur-lg dark:text-[#273248] dark:bg-slate-300 text-white">
       <div className="navbar-start">
-        <div className="dropdown">
-          <div
-            tabIndex={0}
-            onClick={() => setOpen(!open)}
-            className="btn btn-sm !px-1.5 text-xl lg:hidden"
-          >
-            {open === true ? <IoCloseSharp /> : <IoMdMenu />}
-          </div>
-          {open && (
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 font-semibold text-black rounded-box z-[50] mt-3 w-52 p-5 shadow"
-            >
-              {links}
-            </ul>
-          )}
-        </div>
+      <div className="relative lg:hidden">
+  <button
+    onClick={() => setOpen(!open)}
+    className="btn btn-sm !px-1.5 text-xl"
+  >
+    {open ? <IoCloseSharp /> : <IoMdMenu />}
+  </button>
+
+  {open && (
+    <ul className="absolute top-12 left-0 w-56 bg-transparent border border-white text-white font-semibold rounded-lg shadow-lg z-50 p-5 space-y-2 backdrop-blur-md">
+    {links}
+  </ul>
+  
+  )}
+</div>
+
         <Link to="/" className="font-bold ml-2 text-2xl">
           Pro Gear
         </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         {
           user ? <ul className="menu menu-horizontal px-1">{links}</ul> : <ul className="menu menu-horizontal px-1">{links1}</ul>
         }
-        
       </div>
-      <div className="navbar-end">
+
+      <div className="navbar-end flex items-center justify-center gap-4">
         {user ? (
           <div className="flex flex-col items-center">
             <img
              data-tooltip-id="user-tooltip"
              data-tooltip-content={user?.displayName || "No username available"}
               className="w-10 h-10 rounded-full"
-              referrerPolicy='no-referrer'
+              referrerPolicy="no-referrer"
               src={user?.photoURL}
               alt=""
             />
-             <ReactTooltip id="user-tooltip" place="left" type="dark" effect="float" />
-            {/* <p> {user && user.email}</p> */}
+            <ReactTooltip id="user-tooltip" place="left" type="dark" effect="float" />
           </div>
         ) : null}
 
         {user && user?.email ? (
-          <button onClick={logOut} className="btn btn-sm font-semibold ml-3">
+          <button onClick={logOut} className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300">
             Log-Out
           </button>
         ) : (
-          <Link to="/auth/login" className="btn btn-sm font-semibold ml-3">
+          <Link to="/auth/login" className="bg-transparent hover:bg-black text-white font-semibold py-2 px-4 border border-white rounded transition duration-300">
             Login
           </Link>
         )}
 
-        {/* theme swap btn */}
-        <label className="swap swap-rotate ml-3 ">
-          {/* this hidden checkbox controls the state */}
+        {/* Theme toggle button */}
+        <label className="swap swap-rotate ml-3">
           <input
             type="checkbox"
             onChange={handleToggle}
             checked={theme === "light"}
             className="theme-controller"
           />
-
-          {/* moon icon */}
           <svg
             className="swap-on h-8 w-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -111,9 +107,8 @@ const Header = () => {
           >
             <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
           </svg>
-          {/* sun icon */}
           <svg
-            className="swap-off h-8 w-8 fill-current "
+            className="swap-off h-8 w-8 fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
