@@ -1,12 +1,16 @@
-import cricket from '../assets/bat balll.svg';
-import football from '../assets/football.png';
-import badminton from '../assets/batminton.png';
-import Treadmill from '../assets/treadmill.svg';
-import Walking from '../assets/Walking Pad.jpg';
-import Exercise from '../assets/Exercise Cycle.jpg';
-import Dumbbells from '../assets/dumbbell.svg';
-import Basketball from '../assets/Basketball.png';
+import Slider from "react-slick";
 import { Fade } from "react-awesome-reveal";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import cricket from '../assets/cricket_bat_ball.png';
+import football from '../assets/footballl.png';
+import badminton from '../assets/badminton.png';
+import Treadmill from '../assets/treadmil.png';
+import Walking from '../assets/walking_pad.webp';
+import Exercise from '../assets/exercise_cycle.png';
+import Dumbbells from '../assets/dumbell.png';
+import Basketball from '../assets/basketball.jpg';
 
 const sportsItems = [
   { name: "Cricket", img: cricket },
@@ -18,6 +22,39 @@ const sportsItems = [
   { name: "Dumbbells", img: Dumbbells },
   { name: "Basketball", img: Basketball },
 ];
+
+const sliderSettings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  speed: 3000,
+  cssEase: "linear",
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  pauseOnHover: false,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 const SportsCategory = () => {
   return (
@@ -33,22 +70,21 @@ const SportsCategory = () => {
         </div>
       </Fade>
 
-      <Fade cascade damping={0.15} direction="up" triggerOnce>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+      <Fade direction="up" triggerOnce>
+        <Slider {...sliderSettings}>
           {sportsItems.map(({ name, img }) => (
-            <div
-              key={name}
-              className="bg-white dark:bg-slate-200 rounded-xl shadow-md hover:shadow-lg transition p-4 flex flex-col items-center text-center"
-            >
-              <img
-                src={img}
-                alt={name}
-                className="w-24 h-24 object-contain mb-3"
-              />
-              <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+            <div key={name} className="px-3">
+              <div className="bg-white dark:bg-slate-200 rounded-xl shadow-md hover:shadow-lg transition p-4 flex flex-col items-center text-center">
+                <img
+                  src={img}
+                  alt={name}
+                  className="w-24 h-24 object-contain mb-3"
+                />
+                <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+              </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </Fade>
     </section>
   );
