@@ -11,6 +11,7 @@ const Footer = () => {
           {/* Left: Brand and Description */}
           <div className="md:w-1/2">
             <h2 className="text-3xl font-bold mb-2">Pro Gear</h2>
+            <img src="/vite.svg" alt="Pro Gear Logo" className="w-14 h-14" />
             <p className="max-w-md text-sm md:text-base">
               Pro Gear is your go-to store for high-quality sports equipment, offering a wide range of products to elevate your game and fuel your passion for sports.
             </p>
