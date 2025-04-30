@@ -8,7 +8,7 @@ const AllEquipment = () => {
 
   // Fetch data from the backend with sorting
   const fetchEquipments = async () => {
-    const response = await fetch(`http://localhost:5000/equipment?sortOrder=${sortOrder}`);
+    const response = await fetch(`https://pro-gear-server.vercel.app/equipment?sortOrder=${sortOrder}`);
     const data = await response.json();
 
     const updatedData = data.map((item) => ({

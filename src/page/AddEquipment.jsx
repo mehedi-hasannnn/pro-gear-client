@@ -35,7 +35,7 @@ const AddEquipment = () => {
       username,
     };
 
-    fetch("http://localhost:5000/equipment", {
+    fetch("https://pro-gear-server.vercel.app/equipment", {
       method: "POST",
       headers: {
         "content-type": "application/json",

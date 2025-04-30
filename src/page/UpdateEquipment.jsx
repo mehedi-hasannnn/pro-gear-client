@@ -28,7 +28,7 @@ const UpdateEquipment = () => {
         // console.log(updatedEquipment)
 
         // send data to the server
-        fetch(`http://localhost:5000/equipment/${_id}`,{
+        fetch(`https://pro-gear-server.vercel.app/equipment/${_id}`,{
             method: 'PUT',
             headers:{
                 'content-type':'application/json'
