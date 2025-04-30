@@ -7,29 +7,48 @@ import SportsCategory from "../component/SportsCategory";
 import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
-    const productData = useLoaderData();
-    console.log(productData);
+  const productData = useLoaderData();
+  console.log(productData);
 
-    
   return (
-    <div>
+    <div className="bg-[#f9f9f9]">
       <HomeSlider />
-      <div className="">
+
+      <section className="py-16 px-4 md:px-10">
         <SportsCategory />
-        <Fade direction='right' duration={2000}>
-        <h2 className="text-3xl font-bold text-center mb-10 mt-10">PRODUCT SECTION</h2>
+      </section>
+
+      <section className="py-16 px-4 md:px-10 bg-white">
+        <Fade direction="up" duration={1000}>
+          <h2 className="text-4xl font-bold text-center text-[#273248] mb-12">
+            Trending Equipments
+          </h2>
         </Fade>
-        <div className="grid grid-cols-1 px-10 mx-auto w-11/12 md:grid-cols-3 gap-5 my-10">
-          {
-            productData.map((product) => <Product key={product._id} product={product}/>)
-          }
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
+          {productData.map((product) => (
+            <Product key={product._id} product={product} />
+          ))}
         </div>
-        <button className="mt-4 mx-auto block  px-4 py-3 dark:text-[#273248] dark:bg-slate-300 bg-[#273248] text-white rounded-lg hover:bg-[#273248e5]"><Link to='/products'>More Products</Link></button>
+
+        <div className="text-center mt-10">
+          <Link to="/products">
+            <button className="mt-6 mx-auto block px-6 py-3 rounded-lg bg-gradient-to-r from-[#00B4DB] to-[#0083B0] text-white font-semibold shadow-md hover:from-[#0083B0] hover:to-[#00B4DB] transition-all duration-300">
+              More Products
+            </button>
+          </Link>
+        </div>
+      </section>
+
+      <section className="py-16 px-4 md:px-10 bg-white">
         <ProudClient />
-        <Fade direction="right" duration={2000}>
-        <Leading />
+      </section>
+
+      <section className="py-10 px-4 md:px-10 bg-white">
+        <Fade direction="up" duration={1000}>
+          <Leading />
         </Fade>
-      </div>
+      </section>
     </div>
   );
 };

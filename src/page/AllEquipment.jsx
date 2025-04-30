@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EquipmentTable from "./EquipmentTable";
+import { ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react";
 
 const AllEquipment = () => {
   const [equipments, setEquipments] = useState([]);
@@ -7,67 +8,61 @@ const AllEquipment = () => {
 
   // Fetch data from the backend with sorting
   const fetchEquipments = async () => {
-    const response = await fetch(`https://6th-assignment-sport-axis-server.vercel.app/equipment?sortOrder=${sortOrder}`);
+    const response = await fetch(`http://localhost:5000/equipment?sortOrder=${sortOrder}`);
     const data = await response.json();
 
-    // Convert the price to number for sorting purposes
     const updatedData = data.map((item) => ({
       ...item,
       price: Number(item.price)
     }));
 
-
     updatedData.sort((a, b) => {
-      if (sortOrder === 1) {
-        return a.price - b.price;  
-      } else {
-        return b.price - a.price;  
-      }
+      return sortOrder === 1 ? a.price - b.price : b.price - a.price;
     });
 
-    setEquipments(updatedData);  
+    setEquipments(updatedData);
   };
 
-  
   useEffect(() => {
     fetchEquipments();
   }, [sortOrder]);
 
   return (
-    <div className="py-10 bg-[#F4F3F0]">
-      <h1 className="text-center text-4xl text-[#273248] font-bold mb-8">
+    <div className="py-16 px-10 bg-gradient-to-br from-gray-100 to-white min-h-screen">
+      <h1 className="text-center text-4xl font-extrabold text-gray-800 mb-10 drop-shadow">
         All Sports Equipment Table
       </h1>
 
-     
-      <div className="w-[400px] mx-auto mb-4 flex justify-center gap-4">
+      <div className="flex justify-center gap-4 mb-8">
         <button
-          onClick={() => setSortOrder(1)} 
-          className="bg-[#273248] hover:bg-red-400 text-white px-3 py-1 text-sm rounded"
+          onClick={() => setSortOrder(1)}
+          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow transition"
         >
-          Sort by Price: Low to High
+          <ArrowDownWideNarrow size={18} />
+          Low to High
         </button>
         <button
           onClick={() => setSortOrder(-1)}
-          className="bg-[#273248] hover:bg-red-400 text-white px-3 py-1 text-sm rounded"
+          className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg shadow transition"
         >
-          Sort by Price: High to Low
+          <ArrowUpWideNarrow size={18} />
+          High to Low
         </button>
       </div>
 
-      <div className="md:w-1/2 w-full mx-auto bg-slate-50 md:px-10">
-        <div className="md:overflow-x-auto overflow-x-hidden">
-          <table className="table">
-            <thead>
+      <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-6">
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full border-collapse text-sm md:text-base">
+            <thead className="bg-gray-100 text-gray-700 uppercase">
               <tr>
-                <th>Serial</th>
-                <th>Item Name</th>
-                <th>Category Name</th>
-                <th>Price</th>
-                <th>Action</th>
+                <th className="py-3 px-4 text-left">Serial</th>
+                <th className="py-3 px-4 text-left">Item Name</th>
+                <th className="py-3 px-4 text-left">Category Name</th>
+                <th className="py-3 px-4 text-left">Price</th>
+                <th className="py-3 px-4 text-left">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-200">
               {equipments.map((equipment, index) => (
                 <EquipmentTable
                   key={equipment._id}

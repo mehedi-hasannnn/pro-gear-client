@@ -6,8 +6,8 @@ const AllProduct = () => {
   const productData = useLoaderData();
   return (
     <div>
-      <Fade direction="right" duration={1000}>
-        <h2 className="text-3xl font-bold text-center mb-10 mt-10">
+      <Fade direction="up" duration={1000}>
+        <h2 className="text-3xl font-bold text-center mb-10 mt-20">
           PRODUCT SECTION
         </h2>
       </Fade>

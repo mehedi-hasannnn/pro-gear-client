@@ -95,7 +95,7 @@ const Register = () => {
         
         const newUser = {name,email,photo}
         // save new user info to the firebase
-        fetch('https://6th-assignment-sport-axis-server.vercel.app/users',{
+        fetch('http://localhost:5000/users',{
           method: 'POST',
           headers:{
             'content-type' : 'application/json'

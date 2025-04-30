@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home/>,
-                loader: ()=>fetch('https://6th-assignment-sport-axis-server.vercel.app/equipment-home')
+                loader: ()=>fetch('http://localhost:5000/equipment-home')
             },
             {
                 path: '/addEquipment',
@@ -31,17 +31,17 @@ const router = createBrowserRouter([
             {
                 path: '/updateEquipment/:id',
                 element: <PrivateRoute><UpdateEquipment/></PrivateRoute>,
-                loader: ({params}) => fetch(`https://6th-assignment-sport-axis-server.vercel.app/equipment/${params.id}`) 
+                loader: ({params}) => fetch(`http://localhost:5000/equipment/${params.id}`) 
             },
             {
                 path: '/allList',
                 element: <PrivateRoute><EquipmentList/></PrivateRoute>,
-                loader: ()=>fetch('https://6th-assignment-sport-axis-server.vercel.app/equipment')
+                loader: ()=>fetch('http://localhost:5000/equipment')
             },
             {
                 path: '/allSports',
                 element: <AllEquipment/>,
-                // loader: ()=>fetch('https://6th-assignment-sport-axis-server.vercel.app/equipment')
+                // loader: ()=>fetch('http://localhost:5000/equipment')
             },
             {
                 path: '/about',
@@ -50,12 +50,12 @@ const router = createBrowserRouter([
             {
                 path: '/equipment/:id/details',
                 element:<PrivateRoute><Details/></PrivateRoute>,
-                loader: ({params})=>fetch(`https://6th-assignment-sport-axis-server.vercel.app/equipment/${params.id}`)
+                loader: ({params})=>fetch(`http://localhost:5000/equipment/${params.id}`)
             },
             {
                 path: '/products',
                 element: <PrivateRoute> <AllProduct/></PrivateRoute>,
-                loader: ()=>fetch('https://6th-assignment-sport-axis-server.vercel.app/equipment')
+                loader: ()=>fetch('http://localhost:5000/equipment')
             }
         ]
     },
