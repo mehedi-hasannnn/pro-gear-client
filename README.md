@@ -2,7 +2,7 @@
 
 Pro Gear is a modern, responsive, single-page e-commerce application built for sports enthusiasts to explore, add, and manage various sports equipment. Built with React and Tailwind CSS, it ensures smooth navigation, stunning design, and performance across all devices.
 
-🔗 **Live Site:** [https://progear-client.netlify.app](https://progear-client.netlify.app)
+🔗 **Live Site:** [[https://progear-client.netlify.app](https://pro-gear-bd.web.app/)]
 
 ## 🚀 Features
 
