@@ -65,7 +65,7 @@ const SportsCategory = () => {
             Explore Our Sports Categories
           </h2>
           <p className="max-w-2xl mx-auto text-gray-500 dark:text-gray-600 text-sm md:text-base">
-            Whether you're training for performance or just starting your fitness journey, discover top-quality gear across multiple sports categories designed for every athlete.
+            Whether you're training for performance or just starting your fitness journey, discover top-quality gear across multiple sports categories designed for every athlete. All in one store.
           </p>
         </div>
       </Fade>
